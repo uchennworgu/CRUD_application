@@ -55,7 +55,7 @@ function App() {
           <h1>Instructions</h1>
           <p> This is a standard CRUD application that enables the user to create "person" entries with fields consisting of name, age 
             and height. To create a "person" entry to be added to the database, simply enter information for all the required fields at the top of the page and 
-            press the "Add Persom" button. Currently there are a few restriction on the "person" entry: the name cannot contain a number and the age/height
+            press the "Add Person" button. Currently there are a few restriction on the "person" entry: the name cannot contain a number and the age/height
             cannot be less than or equal to zero. The application will alert you if any of these restrictions are violated and the person will not be added to the
             database unless the violations are fixed. Clicking the "Toggle Table View" button will display all of the "person" entries
             in a table if they are hidden or hide the person entries if they are currently being displayed. When the table is visible, 
