@@ -1,38 +1,114 @@
+@import '../node_modules/@syncfusion/ej2-base/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-buttons/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-popups/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-react-navigations/styles/material.css';
+html{
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
+flex-direction: column;
+justify-content: center;
+}
+
+.information {
+  font-size: 20px;
+  display:flex;
+flex-direction:row;
+width: 100%;
+justify-content: left;
+align-items: center;
+background:  #4CAF50;
+color: white;
+font-family: Arial, Helvetica, sans-serif;
+}
+
+.information input {
+
+  width: 300px;
+  height: 50px;
+  font-size: 20px;
+  padding-left: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+ margin-top: 5px;
+ margin-bottom: 5px;
+}
+
+.information label{
+  margin-left: 20px;
+}
+
+.functions button {
+  width: 160 px;
+  height: 25px;
+  margin-top: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+ .information button {
+  width: 160px;
+  height: 50px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.employees button {
+  width: 320px;
+  height: 50px;
+  margin-top: 15px;
+}
+
+ button:hover {
+cursor: pointer;
+}
+
+.employees{
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: column;
+  width: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+.people{
+  width: 700px;
+  height: auto;
+  border: 1px solid black;
+  margin: 10px;
+  display: flex;
+  padding: 10px;
+  font-family: 'Courier New', Courier, monospace;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.people h3{
+  margin: 20px;
 }
+
+  
+.Tabs {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 3px;
+  color: rgb(11, 67, 150);
+}
+
+
+.e-tab-header{
+  padding: 5px;
+  background: #aa0e0e;
+  color: rgb(0, 195, 255);
+  cursor: pointer;
+}
+
+.e-tab-header button {
+  width: 70px;
+  height: 30px;
+  margin-bottom: 5px;
+}
+
+
+
