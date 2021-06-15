@@ -18,11 +18,11 @@ const Page = ({labelName }) => {
 
   const [name,setName] = useState("");
   const [age,setAge] = useState(0);
-  const [height,setHeight] = useState(0);
+  const [salary,setSalary] = useState(0);
   const [employeeList,setEmployeeList] = useState([]);
   //const [newAge, setNewAge] = useState(0);
   //const [newName, setNewName] = useState(0);
-  //const [newHeight, setNewHeight] = useState(0);
+  //const [newsalary, setNewsalary] = useState(0);
   const [show,setShow] = useState(false);
   const [setup,setSetup] = useState(false);
   //const [id,setId] = useState(0);
@@ -36,24 +36,24 @@ const Page = ({labelName }) => {
   const addPerson = () => {
     const doesItHaveNumber = regex.test(name);
     console.log(doesItHaveNumber);
-     if (name === "" || doesItHaveNumber === true || age <= 0 || height<=0){
-      alert("Invalid, Form constraints: Name cannot contain a number or be blank. Age and Height must be greater than 0!");
+     if (name === "" || doesItHaveNumber === true || age <= 0 || salary<=0){
+      alert("Invalid, Form constraints: Name cannot contain a number or be blank. Age and Salary must be greater than 0!");
      }
      else{
     //axios is a library that needs to be installed by 'npm install axios'
     //allows request to be made to an api, axios is used in making a request
-    Axios.post('http://localhost:3001/create',{
+    Axios.post('https://crud-application-unworgu.herokuapp.com/create',{
       name: name, 
       age: age, 
-      height: height,}).then(() => {
+      salary: salary,}).then(() => {
        // console.log("success"); <-- check is push occured correctly
        GetEmployees();
        setName("");
        setAge(0);
-       setHeight(0);
+       setSalary(0);
        document.getElementById("nameInput").value = '';
        document.getElementById("ageInput").value = '';
-       document.getElementById("heightInput").value = '';
+       document.getElementById("salaryInput").value = '';
        alert("Person has been added to database. ");
       });
     }
@@ -62,7 +62,7 @@ const Page = ({labelName }) => {
   // rename this to person
   const GetEmployees = () => {
   
-    Axios.get('http://localhost:3001/employees').then((response) => {
+    Axios.get('https://crud-application-unworgu.herokuapp.com/employees').then((response) => {
         //console.log(response);  <-- checks if response is correct
         setEmployeeList(response.data);
       })
@@ -88,7 +88,7 @@ const Page = ({labelName }) => {
       alert("invalid age, must be grater than 0!");
     }
     else{
-    Axios.put('http://localhost:3001/updateAge', {age: age1, id: id}).then((response) => {
+    Axios.put('https://crud-application-unworgu.herokuapp.com/updateAge', {age: age1, id: id}).then((response) => {
     alert("updated age");
     GetEmployees();
     //setNewAge(0);
@@ -107,7 +107,7 @@ const Page = ({labelName }) => {
       alert("Name cannot be blank or contain a number, try again!");
     }
     else {
-    Axios.put('http://localhost:3001/updateName', {name: name1, id: id}).then((response) => {
+    Axios.put('https://crud-application-unworgu.herokuapp.com/updateName', {name: name1, id: id}).then((response) => {
     alert("updated name");
     GetEmployees();
     //setNewName("");
@@ -116,17 +116,17 @@ const Page = ({labelName }) => {
   }  
   };
 
-  const UpdatePersonHeight = (id,formId) => {
-    var height1 = document.getElementById(formId).value;
-    //console.log(newHeight);
-    if (height1 <= 0){
-      alert("invalid height, must be grater than 0!");
+  const UpdatePersonSalary = (id,formId) => {
+    var salary1 = document.getElementById(formId).value;
+    //console.log(newsalary);
+    if (salary1 <= 0){
+      alert("invalid salary, must be grater than 0!");
     }
     else{
-    Axios.put('http://localhost:3001/updateHeight', {height: height1, id: id}).then((response) => {
-    alert("updated height");
+    Axios.put('https://crud-application-unworgu.herokuapp.com/updateSalary', {salary: salary1, id: id}).then((response) => {
+    alert("updated salary");
     GetEmployees();
-    //setNewHeight(0);
+    //setNewsalary(0);
     });
     document.getElementById(formId).value= '';
   }
@@ -134,7 +134,7 @@ const Page = ({labelName }) => {
   };
 
   const deletePerson = (id) => {
-    Axios.delete(`http://localhost:3001/delete/${id}`).then((response) => {
+    Axios.delete(`https://crud-application-unworgu.herokuapp.com/delete/${id}`).then((response) => {
       alert("deleted");
     GetEmployees();
     });
@@ -150,8 +150,8 @@ const Page = ({labelName }) => {
        <input type="text"  id = "nameInput" placeholder="Enter name here" onChange={(event) => {setName (event.target.value);} } />
        <label> Age</label>
        <input type="number" id = "ageInput" placeholder="Enter age here" onChange={(event) => {setAge (event.target.value);} }/>
-       <label> Height</label>
-       <input type="number"   id = "heightInput"placeholder="Enter height here" onChange={(event) => {setHeight (event.target.value);} }/>
+       <label> Salary</label>
+       <input type="number"   id = "salaryInput"placeholder="Enter salary here" onChange={(event) => {setSalary (event.target.value);} }/>
        <button  onClick={addPerson}>Add Person</button>
        <button onClick={toggleList}>toggle table View</button>
        </div>
@@ -161,27 +161,27 @@ const Page = ({labelName }) => {
         <th>id</th>
        <th>Username</th>
        <th>Age</th>
-       <th>Height</th>
+       <th>Salary</th>
        <th>Update/ Delete Functions</th>
        </tr>
 
        {employeeList.map((val,key) => {
          var id1  = uniqueId('nameInput-');
          var id2  = uniqueId('ageInput-');
-         var id3  = uniqueId('heightInput-');
+         var id3  = uniqueId('salaryInput-');
          return <tr key = {val.id} >
            <td>{val.id} </td>
            <td>{val.name} </td>
            <td>{val.age} </td>
-           <td>{val.height} </td>
+           <td>{val.salary} </td>
            <td>
              <div className="functions">  
                <input type="text" placeholder="Enter new name here" id = {id1} />
                <button onClick={()=> UpdatePersonName(val.id,id1)}> {" "} Update </button>
                <input type="number" placeholder="Enter new age here" id = {id2}/>
                <button onClick={()=> UpdatePersonAge(val.id,id2)}> {" "} Update </button>
-               <input type="number" placeholder="Enter new height here" id = {id3} />
-               <button onClick={()=> UpdatePersonHeight(val.id,id3)}> {" "} Update </button>
+               <input type="number" placeholder="Enter new salary here" id = {id3} />
+               <button onClick={()=> UpdatePersonSalary(val.id,id3)}> {" "} Update </button>
                <button onClick={()=> deletePerson(val.id)}> {" "} Delete Row </button>
              </div>
            </td>
