@@ -1,7 +1,6 @@
 import './App.css';
 import './table.css';
 //utilizing save states from react
-import {/*useRowSelect,*/useTable, /*useGlobalFilter*/} from 'react-table'
 import  {useEffect, /*useMemo,*/ useState} from 'react'
 import Axios from 'axios'
 import uniqueId from 'lodash/uniqueId'
