@@ -2,12 +2,12 @@ import Page from './Page';
 import './App.css';
 
 //utilizing save states from react
-import { useState } from "react";
+//import { useState } from "react";
 
 import { TabComponent/*, TabItemDirective, TabItemsDirective*/} from '@syncfusion/ej2-react-navigations';
 
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+//import * as ReactDOM from 'react-dom';
 
 //import { Tooltip } from '@syncfusion/ej2-popups';
 import { enableRipple } from '@syncfusion/ej2-base';
