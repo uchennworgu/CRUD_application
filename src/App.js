@@ -44,7 +44,7 @@ function App() {
          
          <div className="e-tab-header">
             <div> Form </div>
-            <div> Instructions </div>
+            <div> I changed </div>
             <div> Contact Information </div>
         </div>
         <div className="e-content">
