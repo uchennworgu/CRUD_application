@@ -1,7 +1,7 @@
 import './App.css';
 import './table.css';
 //utilizing save states from react
-import  {useEffect, /*useMemo,*/ useState} from 'react'
+import  {/*useEffect, useMemo,*/ useState} from 'react'
 import Axios from 'axios'
 import uniqueId from 'lodash/uniqueId'
 import * as React from 'react';

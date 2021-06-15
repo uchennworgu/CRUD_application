@@ -3,29 +3,20 @@ import './App.css';
 
 //utilizing save states from react
 import { useState } from "react";
-import Axios from 'axios'
 
-import { TabComponent, TabItemDirective, TabItemsDirective } from '@syncfusion/ej2-react-navigations';
+import { TabComponent/*, TabItemDirective, TabItemsDirective*/} from '@syncfusion/ej2-react-navigations';
 
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
-import { Tooltip } from '@syncfusion/ej2-popups';
+//import { Tooltip } from '@syncfusion/ej2-popups';
 import { enableRipple } from '@syncfusion/ej2-base';
 enableRipple(true);
 
 //this app is made by using react hooks
 function App() {
 
-  //states are for storing information to send to database
-  const [name,setName] = useState("");
-  const [age,setAge] = useState(0);
-  const [height,setHeight] = useState(0);
-  const [employeeList,setEmployeeList] = useState([]);
-  const [tabName,setTab] = useState("");
-  const [source,setSource] = useState(1);
-  const [tabCounter,setCounter] = useState(2)
-  const [id, setId] = useState(0);
+
  
 
 
