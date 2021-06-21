@@ -172,7 +172,7 @@ const Page = ({labelName }) => {
            <td>{val.id} </td>
            <td>{val.name} </td>
            <td>{val.age} </td>
-           <td>{val.salary} </td>
+           <td>${val.salary} </td>
            <td>
              <div className="functions">  
                <input type="text" placeholder="Enter new name here" id = {id1} />
